@@ -10,6 +10,9 @@ from routes.image_to_pdf import router as image_router
 # Import Merge PDF routes
 from routes.merge_pdf import router as merge_router
 
+from routes.split_pdf import router as split_router
+
+from routes.pdf_to_image import router as pdf_to_image_router
 
 # Create FastAPI application
 app = FastAPI(
@@ -36,6 +39,8 @@ app.include_router(image_router)
 # Register Merge PDF endpoints
 app.include_router(merge_router)
 
+app.include_router(split_router)
+app.include_router(pdf_to_image_router)
 
 # Health check endpoint
 @app.get("/")
