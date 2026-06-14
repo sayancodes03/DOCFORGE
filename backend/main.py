@@ -14,6 +14,9 @@ from routes.split_pdf import router as split_router
 
 from routes.pdf_to_image import router as pdf_to_image_router
 
+from routes.compress_pdf import router as compress_router
+
+from routes.rotate_pdf import router as rotate_router
 # Create FastAPI application
 app = FastAPI(
     title="DocForge API",
@@ -41,7 +44,8 @@ app.include_router(merge_router)
 
 app.include_router(split_router)
 app.include_router(pdf_to_image_router)
-
+app.include_router(compress_router)
+app.include_router(rotate_router)
 # Health check endpoint
 @app.get("/")
 def home():
